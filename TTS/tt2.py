@@ -1,31 +1,37 @@
-from PIL import Image
-import pytesseract
-from gtts import gTTS
-import os
+# import the following libraries 
+# will convert the image to text string 
+import pytesseract	 
 
-# Replace 'your_image.jpg' with the path to your image file
-image_path = 'img1.jpg'
+# adds image processing capabilities 
+from PIL import Image	 
 
-# Perform OCR on the image to extract text
-text = pytesseract.image_to_string(Image.open('D:\KODIKON\img1.jpg'))
+# converts the text to speech 
+import pyttsx3		 
 
-# Print the extracted text
-print("Extracted Text:")
-print(text)
+#translates into the mentioned language 
+from googletrans import Translator	 
 
-# Convert the text to speech
-tts = gTTS(text, lang='en')
+# opening an image from the source path 
+img = Image.open('img1.jpg')	 
 
-# Save the speech to an audio file (e.g., 'output.mp3')
-tts.save('output.mp3')
+# describes image format in the output 
+print(img)						 
+# path where the tesseract module is installed 
+pytesseract.pytesseract.tesseract_cmd ='C:\users\ivinm\appdata\local\programs\python\python311\lib\site-packages'
+# converts the image to result and saves it into result variable 
+result = pytesseract.image_to_string(img) 
+# write text in a text file and save it to source path 
+with open('abc.txt',mode ='w') as file:	 
+	
+				file.write(result) 
+				print(result) 
+				
+p = Translator()					 
+# translates the text into german language 
+k = p.translate(result,dest='german')	 
+print(k) 
+engine = pyttsx3.init() 
 
-# Play the speech (requires an audio player)
-os.system('start output.mp3')  # On Windows
-# On Linux, you can use 'aplay output.mp3' or another audio player
-
-# Alternatively, you can use a text-to-speech library to play the audio directly in your script
-# For example, you can use the 'pyttsx3' library for text-to-speech:
-# import pyttsx3
-# engine = pyttsx3.init()
-# engine.say(text)
-# engine.runAndWait()
+# an audio will be played which speaks the test if pyttsx3 recognizes it 
+engine.say(k)							 
+engine.runAndWait() 
