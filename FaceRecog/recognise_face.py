@@ -51,12 +51,8 @@ while True:
     # Only process every other frame of video to save time
     if process_this_frame:
         # Find all the faces and face encodings in the current frame of video
-        
-        batch_rgb_small_frames = [rgb_small_frame] * len(face_locations)
-        batch_face_locations = [face_locations] * len(face_locations)
-        face_encodings = face_recognition.face_encodings(batch_rgb_small_frames, batch_face_locations, num_jitters=1)
         face_locations = face_recognition.face_locations(rgb_small_frame)
-
+        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
         face_names = []
         for face_encoding in face_encodings:
@@ -65,9 +61,9 @@ while True:
             name = "Unknown"
 
             # # If a match was found in known_face_encodings, just use the first one.
-            if True in matches:
-                first_match_index = matches.index(True)
-                name = known_face_names[first_match_index]
+            # if True in matches:
+            #     first_match_index = matches.index(True)
+            #     name = known_face_names[first_match_index]
 
             # Or instead, use the known face with the smallest distance to the new face
             face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
