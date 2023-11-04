@@ -1,37 +1,27 @@
-# import the following libraries 
-# will convert the image to text string 
-import pytesseract	 
-
-# adds image processing capabilities 
-from PIL import Image	 
-
-# converts the text to speech 
-import pyttsx3		 
-
-#translates into the mentioned language 
-from googletrans import Translator	 
-
-# opening an image from the source path 
-img = Image.open('img1.jpg')	 
-
-# describes image format in the output 
-print(img)						 
-# path where the tesseract module is installed 
-pytesseract.pytesseract.tesseract_cmd ='C:\users\ivinm\appdata\local\programs\python\python311\lib\site-packages'
-# converts the image to result and saves it into result variable 
-result = pytesseract.image_to_string(img) 
-# write text in a text file and save it to source path 
-with open('abc.txt',mode ='w') as file:	 
-	
-				file.write(result) 
-				print(result) 
-				
-p = Translator()					 
-# translates the text into german language 
-k = p.translate(result,dest='german')	 
-print(k) 
-engine = pyttsx3.init() 
-
-# an audio will be played which speaks the test if pyttsx3 recognizes it 
-engine.say(k)							 
-engine.runAndWait() 
+# Import the gTTS module for text  
+# to speech conversion  
+from gtts import gTTS  
+  
+# This module is imported so that we can  
+# play the converted audio  
+  
+from playsound import playsound  
+  
+# It is a text value that we want to convert to audio  
+text_val = 'All the best for your exam.'  
+  
+# Here are converting in English Language  
+language = 'en'  
+  
+# Passing the text and language to the engine,  
+# here we have assign slow=False. Which denotes  
+# the module that the transformed audio should  
+# have a high speed  
+obj = gTTS(text=text_val, lang=language, slow=False)  
+  
+#Here we are saving the transformed audio in a mp3 file named  
+# exam.mp3  
+obj.save("exam.mp3")  
+  
+# Play the exam.mp3 file  
+playsound("exam.mp3")
