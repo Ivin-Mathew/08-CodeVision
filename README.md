@@ -1,10 +1,10 @@
 # CodeVision-Kodikon
 Long Description about project. This project do that. This project is awesome...
 ## Team members
-1. Name [Embed personal github URL]
-2. Name [Embed perosnal github URL]
-3. Name []
-4. Name []
+1. S J Jithin (https://github.com/Jockey12https)
+2. Ivin Mathew (https://github.com/Ivin-Mathew)
+3. Muhammed Farhan [https://github.com/farhankl02]
+4. Goutham M Dev [https://github.com/GouthamMDev]
 ## Team Id
 Team id here
 
