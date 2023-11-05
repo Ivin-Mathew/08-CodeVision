@@ -8,7 +8,7 @@ from gtts import gTTS
 from playsound import playsound  
   
 # It is a text value that we want to convert to audio  
-text_val = 'All the best for your exam.'  
+text_val = 'This text  has been converted into audio format by the program. It can convert multiple lines of text into audio at once'  
   
 # Here are converting in English Language  
 language = 'en'  
@@ -17,7 +17,7 @@ language = 'en'
 # here we have assign slow=False. Which denotes  
 # the module that the transformed audio should  
 # have a high speed  
-obj = gTTS(text=text_val, lang=language, slow=False)  
+obj = gTTS(text=text_val, lang=language, slow=True)  
   
 #Here we are saving the transformed audio in a mp3 file named  
 # exam.mp3  
